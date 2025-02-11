@@ -8,8 +8,8 @@ import java.util.stream.Stream;
 public class Exercise88 {
     public static void main(String[] args) {
         //Case 1
-        int[] nums1 = {1,2,3,0,0,0};
-        int[] nums2 = {2,5,6};
+        int[] nums1 = new int[]{1,2,3,0,0,0};
+        int[] nums2 = new int[]{2,5,6};
         int m = 3, n = 3;
 
         merge(nums1, m, nums2, n);
@@ -42,6 +42,9 @@ public class Exercise88 {
         Stream<Integer> mergedStream = mergedList.stream().flatMap(collection -> collection.stream());
 
         List<Integer> sortedList = mergedStream.sorted().toList();
-        System.out.println(sortedList);
+        for (int i = 0; i < nums1.length; i++){
+            nums1[i] = sortedList.get(i);
+        }
+        System.out.println(Arrays.toString(nums1));
     }
 }
